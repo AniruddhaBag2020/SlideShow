@@ -7,7 +7,6 @@
                 position: relative;
                 margin: auto;
                 height: 100%;
-                background-color: aqua;
             }
             .slide{
                 display: none;
@@ -34,26 +33,65 @@
             .dots{
                 text-align: center;
             }
+            .image{
+                width: -webkit-fill-available;
+            }
+            .anim{
+                -webkit-animation-name: fade;
+                -webkit-animation-duration: 1.5s;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+            @-webkit-keyframes fade{
+                from{opacity: .4}
+                to{opacity: 1}
+            }
+            @keyframes fade{
+                from{opacity: .4}
+                to{opacity: 1}
+            }
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="slide">
-                <img src="1.jpg">
+            <div class="slide anim">
+                <img class="image" src="1.jpg">
             </div>
-            <div class="slide">
-                <img src="2.jpg">
+            <div class="slide anim">
+                <img class="image" src="2.jpg">
             </div>
 
-            <a class="prev" onclick="prevImage()">&#10094</a>
+            <!-- <a class="prev" onclick="prevImage()">&#10094</a>
             <a class="next" onclick="nextImage()">&#10095</a>
 
             <div class="dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+                <span class="dot" onclick="slideNo(1)"></span>
+                <span class="dot" onclick="slideNo(2)"></span>
+            </div> -->
         </div>
         <script>
+            var slideIndex = 0;
+            var i;
+            slideShow();
+
+            function slideShow(){
+                var slides = document.getElementsByClassName("slide");
+
+                for(i = 0 ; i<slides.length ; i++){
+                    slides[i].style.display = 'none';
+                }
+
+                slideIndex++;
+
+                if(slideIndex > slides.length){
+                    slideIndex = 1;
+                }
+
+                slides[slideIndex - 1].style.display = 'block';
+
+                setTimeout(slideShow,5000);
+                
+            }
 
         </script>
     </body>
