@@ -1,0 +1,60 @@
+
+<html>
+    <head>
+        <style>
+            .container{
+                width: 100%;
+                position: relative;
+                margin: auto;
+                height: 100%;
+                background-color: aqua;
+            }
+            .slide{
+                display: none;
+            }
+            .prev{
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+            }
+            .next{
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                right: 0px;
+            }
+            .dot{
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                display: inline-block;
+                background-color: brown;
+            }
+            .dots{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="slide">
+                <img src="1.jpg">
+            </div>
+            <div class="slide">
+                <img src="2.jpg">
+            </div>
+
+            <a class="prev" onclick="prevImage()">&#10094</a>
+            <a class="next" onclick="nextImage()">&#10095</a>
+
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <script>
+
+        </script>
+    </body>
+</html>
